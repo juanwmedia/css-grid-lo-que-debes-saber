@@ -8,21 +8,12 @@ main {
     height: 100vh;
     background-color: lightyellow;
     font-family: sans-serif;
-    /* Define el GRID */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Columnas */
-    grid-template-rows: 1fr 1fr 1fr; /* Filas */
-    /* Gestiona el Explicit GRID */
-    grid-auto-rows: 1fr;
 }
 
 section {
-    min-width: 100px;
-    min-height: 100px;
+    width: 100px;
+    height: 100px;
     border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 section:nth-child(even) {
