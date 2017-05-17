@@ -1,0 +1,117 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: lightyellow;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 80%;
+    max-width: 1280px;
+    min-height: 300px;
+    padding: 20px;
+    background-color: goldenrod;
+    display: grid;
+    grid-template-areas:
+            "header"
+            "footer"
+            "main"
+            "sidebar1"
+            "sidebar2";
+    grid-gap: 20px;
+}
+
+.sidebar {
+    border: 1px solid lightyellow;
+}
+
+h1, h3 {
+    color: black;
+    font-weight: normal;
+    text-shadow: 1px 1px 1px white;
+}
+
+h2 {
+    color: white;
+    font-weight: normal;
+    text-shadow: 1px 1px 1px black;
+}
+
+.sidebar {
+    background-color: slategray;
+}
+
+.main {
+    background-color: darkgray;
+}
+
+header, footer, .test {
+    background-color: lightyellow;
+}
+
+main > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 600px) {
+    main {
+        /*    grid-template-rows: 100px 400px 50px;
+            grid-template-columns: .3fr 1fr 1fr .3fr;*/
+        /*    grid: [inicio] auto [inicio-contenido] 500px [fin-contenido] auto [fin]
+                / [inicio] .3fr [inicio-contenido] 1fr 1fr  [fin-contenido] .3fr [fin];*/
+        grid: 100px 400px 50px / .3fr 1fr 1fr .3fr;
+        grid-template-areas:
+                "header header header header"
+                "sidebar1 main main sidebar2"
+                "footer footer footer footer";
+        grid-gap: 20px;
+    }
+
+    header {
+        grid-area: header;
+        /*grid-row: inicio;
+        grid-column: inicio / fin;*/
+    }
+
+    footer {
+        grid-area: footer;
+        /*grid-row: fin-contenido;
+        grid-column: inicio / fin;*/
+    }
+
+    .sidebar:first-of-type {
+        grid-area: sidebar1;
+        /*grid-row: inicio-contenido;
+        grid-column: inicio;*/
+    }
+
+    .sidebar:last-of-type {
+        grid-area: sidebar2;
+        /*grid-row: inicio-contenido;
+        grid-column: fin-contenido;*/
+    }
+
+    .main {
+        grid-area: main;
+        /*grid-column: inicio-contenido / span 2;*/
+    }
+
+    .test {
+        grid-column: footer-start / footer-end;
+    }
+}
